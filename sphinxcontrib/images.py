@@ -259,7 +259,7 @@ def download_images(app, env):
             'Downloading remote images...',
             brown,
             len(env.remote_images)):
-                
+
         dst = os.path.join(env.srcdir, env.remote_images[src])
         if not os.path.isfile(dst):
             logger.info('{} -> {} (downloading)'
