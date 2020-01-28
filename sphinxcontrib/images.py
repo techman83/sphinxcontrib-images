@@ -22,6 +22,13 @@ from sphinx.environment import NoUri
 from sphinx.util.osutil import copyfile
 
 try:
+    from sphinx.util import logging
+
+    logger = logging.getLogger(__name__)
+except ImportError:
+    logger = None
+
+try:
     from sphinx.util.compat import Directive
 except:
     from docutils.parsers.rst import Directive
@@ -252,10 +259,10 @@ def download_images(app, env):
             'Downloading remote images...',
             brown,
             len(env.remote_images)):
-                
+
         dst = os.path.join(env.srcdir, env.remote_images[src])
         if not os.path.isfile(dst):
-            app.info('{} -> {} (downloading)'
+            logger.info('{} -> {} (downloading)'
                       .format(src, dst))
             with open(dst, 'wb') as f:
                 # TODO: apply reuqests_kwargs
@@ -263,9 +270,9 @@ def download_images(app, env):
                     f.write(requests.get(src,
                                         **conf['requests_kwargs']).content)
                 except requests.ConnectionError:
-                    app.info("Cannot download `{}`".format(src))
+                    logger.info("Cannot download `{}`".format(src))
         else:
-            app.info('{} -> {} (already in cache)'
+            logger.info('{} -> {} (already in cache)'
                       .format(src, dst))
 
 
@@ -306,7 +313,7 @@ def configure_backend(app):
     try:
         backend = backend(app)
     except TypeError as error:
-        app.info('Cannot instantiate sphinxcontrib-images backend `{}`. '
+        logger.info('Cannot instantiate sphinxcontrib-images backend `{}`. '
                  'Please, select correct backend. Available backends: {}.'
                  .format(config['backend'],
                 ', '.join(ep.name for ep in pkg_resources.iter_entry_points(group='sphinxcontrib.images.backend'))
@@ -317,8 +324,8 @@ def configure_backend(app):
     # because sphinx try to make a pickle from it.
     app.sphinxcontrib_images_backend = backend
 
-    app.info('Initiated sphinxcontrib-images backend: ', nonl=True)
-    app.info('`{}`'.format(str(backend.__class__.__module__ +
+    logger.info('Initiated sphinxcontrib-images backend: ', nonl=True)
+    logger.info('`{}`'.format(str(backend.__class__.__module__ +
                            ':' + backend.__class__.__name__)))
 
     def backend_methods(node, output_type):
@@ -353,6 +360,12 @@ def setup(app):
     app.connect('builder-inited', configure_backend)
     app.connect('env-updated', download_images)
     app.connect('env-updated', install_backend_static_files)
+
+    global logger
+
+    if logger is None:
+        logger = app
+
     return {'version': sphinx.__version__, 'parallel_read_safe': True}
 
 
