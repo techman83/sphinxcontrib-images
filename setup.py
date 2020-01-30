@@ -28,10 +28,14 @@ setup(
     version='0.9.0',
     url='https://github.com/sphinx-contrib/images',
     download_url='https://pypi.python.org/pypi/sphinxcontrib-images',
+    project_urls={
+        'Bug Tracker': 'https://github.com/sphinx-contrib/images/issues',
+        'Documentation': 'https://sphinxcontrib-images.readthedocs.io/',
+    },
     license='Apache 2',
     author=u'Tomasz Czyż',
     author_email='tomasz.czyz@gmail.com',
-    description='Sphinx "images" extension',
+    description='Sphinx extension for thumbnails',
     long_description=codecs.open('README.rst', encoding="utf8").read(),
     zip_safe=False,
     classifiers=[
