@@ -18,8 +18,8 @@
 # -- Project information -----------------------------------------------------
 
 project = 'sphinxcontrib-images'
-copyright = '2014, Tomasz Czyż'
-author = 'Tomasz Czyż'
+copyright = u'2014, Tomasz Czyż'
+author = u'Tomasz Czyż'
 
 from sphinxcontrib import images
 version = images.__version__
