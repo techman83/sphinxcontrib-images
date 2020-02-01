@@ -4,15 +4,15 @@ sphinxcontrib-images
 sphinxcontrib-images (formerly `sphinxcontrib-fancybox
 <https://pypi.python.org/pypi/sphinxcontrib-fancybox>`_).
 
-Easy sphinx thumbnails (focused on HTML).
+Easy thumbnails in Sphinx documentation (focused on HTML).
 
-* `Documentation <https://pythonhosted.org/sphinxcontrib-images>`_,
-* `Repository (GitHub) <https://github.com/spinus/sphinxcontrib-images/>`_,
-* `PyPI <https://pypi.python.org/pypi/sphinxcontrib-images/>`_.
-* `TravisCI <https://travis-ci.org/spinus/sphinxcontrib-images>`
+* `Documentation <https://sphinxcontrib-images.readthedocs.io>`_
+* `Repository (GitHub) <https://github.com/sphinx-contrib/images/>`_
+* `PyPI <https://pypi.python.org/pypi/sphinxcontrib-images/>`_
+* `TravisCI <https://travis-ci.com/sphinx-contrib/images>`_
 
-  .. image:: https://travis-ci.org/spinus/sphinxcontrib-images.svg?branch=master
-      :target: https://travis-ci.org/spinus/sphinxcontrib-images
+  .. image:: https://api.travis-ci.com/sphinx-contrib/images.svg?branch=master
+      :target: https://travis-ci.com/sphinx-contrib/images 
 
 Features
 --------
@@ -42,9 +42,9 @@ Instalation through pip: ::
 
 or through the GitHub: ::
 
-    pip install git+https://github.com/spinus/sphinxcontrib-images
+    pip install git+https://github.com/sphinx-contrib/images
 
-Next, you have to add extension to ``conf.py`` in your sphinx project. ::
+Next, you have to add extension to ``conf.py`` in your Sphinx project. ::
 
     extensions = [
               …
@@ -61,7 +61,7 @@ Example: ::
     .. thumbnail:: picture.png
 
 
-You can also override default ``image`` directive provided by sphinx.
+You can also override the default ``image`` directive provided by Sphinx.
 Check the documentation for all configuration options.
 
 
@@ -69,4 +69,4 @@ Questions and suggestions
 -------------------------
 
 If you have any suggstions, patches, problems - please use
-`GitHub Issues <https://github.com/spinus/sphinxcontrib-images/issues>`_.
+`GitHub Issues <https://github.com/sphinx-contrib/images/issues>`_.

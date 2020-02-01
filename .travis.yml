@@ -16,8 +16,6 @@ script:
 matrix:
   include:
     - python: 2.7
-      env: TOXENV=py27-sphinx113
-    - python: 2.7
       env: TOXENV=py27-sphinx185
 
     - python: 3.6
@@ -35,8 +33,6 @@ matrix:
     - python: 3.8-dev
       env: TOXENV=py38-sphinx212
 
-    - python: pypy
-      env: TOXENV=pypy-sphinx113
     - python: pypy
       env: TOXENV=pypy-sphinx185
 

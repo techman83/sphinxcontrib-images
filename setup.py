@@ -25,13 +25,17 @@ class Tox(TestCommand):
 
 setup(
     name='sphinxcontrib-images',
-    version='0.8.0',
-    url='https://github.com/spinus/sphinxcontrib-images',
+    version='0.9.0',
+    url='https://github.com/sphinx-contrib/images',
     download_url='https://pypi.python.org/pypi/sphinxcontrib-images',
+    project_urls={
+        'Bug Tracker': 'https://github.com/sphinx-contrib/images/issues',
+        'Documentation': 'https://sphinxcontrib-images.readthedocs.io/',
+    },
     license='Apache 2',
     author=u'Tomasz Czyż',
     author_email='tomasz.czyz@gmail.com',
-    description='Sphinx "images" extension',
+    description='Sphinx extension for thumbnails',
     long_description=codecs.open('README.rst', encoding="utf8").read(),
     zip_safe=False,
     classifiers=[
@@ -44,6 +48,10 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
         'Topic :: Documentation',
     ],
     entry_points={
@@ -59,7 +67,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     setup_requires=['wheel'],
-    install_requires=['sphinx>=1.1.3,<2.0;python_version<"3.0"',
+    install_requires=['sphinx>=1.8.5,<2.0;python_version<"3.0"',
                       'sphinx>=2.0;python_version>="3.0"',
                       'requests>2.2,<3'],
     tests_require=['tox==3.2.1'],

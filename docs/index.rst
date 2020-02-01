@@ -1,8 +1,10 @@
 sphinxcontrib-images |version|
 ==============================
 
-sphinxcontrib-images (formerly `sphinxcontrib-fancybox
-<https://pypi.python.org/pypi/sphinxcontrib-fancybox>`_).
+Project home: `<https://github.com/sphinx-contrib/images>`_
+
+PyPI: `<https://pypi.org/project/sphinxcontrib-images/>`_
+
 
 How to install?
 ---------------
@@ -170,10 +172,10 @@ All available arguments:
 :title:
 
     * If you do not define it, ``default_show_title`` configuration option will
-    be used (it will define whether to show title or not).
+      be used (it will define whether to show title or not).
 
     * If you define this option but leave it empty, the content of the
-    directive will be used as the title::
+      directive will be used as the title::
 
         .. thumbnail:: image.jpg
             :title:
@@ -239,120 +241,174 @@ All available arguments:
 Examples
 --------
 
-Local full-size image
-^^^^^^^^^^^^^^^^^^^^^
+Thumbnail
+^^^^^^^^^
+
+.. sourcecode:: rst
+
+    .. thumbnail:: img.jpg
 
 .. thumbnail:: img.jpg
 
-Remote images
--------------
-
-remote image (http)
-^^^^^^^^^^^^^^^^^^^
-
-.. thumbnail:: http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
-    :download: false
-
-remote image (https)
+Remote image (http)
 ^^^^^^^^^^^^^^^^^^^^
 
+.. sourcecode:: rst
+
+    .. thumbnail:: http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+        :download: false
+
+.. thumbnail:: http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+    :download: false
+
+Remote image (https)
+^^^^^^^^^^^^^^^^^^^^
+
+.. sourcecode:: rst
+
+    .. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+        :download: false
+
 .. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
     :download: false
 
-remote image (download http)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Remote image (download http)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* The image should be downloaded (available from localhost)
+The image is downloaded and placed in `_build/html/_images`
+(for html build) making it availble locally.
+
+.. sourcecode:: rst
+
+    .. thumbnail:: http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+        :download: true
 
 .. thumbnail:: http://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
     :download: true
 
-remote image (download https)
+
+Remote image (download https)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* The image should be downloaded (available from localhost)
+The image is downloaded and placed in `_build/html/_images`
+(for html build) making it availble locally.
+
+.. sourcecode:: rst
+
+    .. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+        :download: true
 
 .. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
     :download: true
 
-image with non standard size
+Image with forced dimensions 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. thumbnail:: img.jpg
-    :width: 500px
-    :height: 50px
+.. sourcecode:: rst
 
-image with additional class
+    .. thumbnail:: img.jpg
+        :width: 300px
+        :height: 100px
+
+.. thumbnail:: img.jpg
+    :width: 300px
+    :height: 100px
+
+Image with additional class
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. thumbnail:: img.jpg
-    :class: warning
+.. sourcecode:: rst
 
-
-image with description
-^^^^^^^^^^^^^^^^^^^^^^
+    .. thumbnail:: img.jpg
+        :class: framed 
 
 .. thumbnail:: img.jpg
+    :class: framed 
 
-    Description of the image with more magical.
+.. note::
+    Requires a custom `custom css file`_ with a rule like:
 
-image alternative text
+    .. sourcecode:: css
+    
+        .framed img { border: 2px solid black;}
+
+    .. _custom css file: https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_css_files
+
+Image with description
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. thumbnail:: http://a/non_existing_image.png
+.. sourcecode:: rst
+
+    .. thumbnail:: img.jpg
+    
+        Descriptive description.
+
+.. thumbnail:: img.jpg
+
+    Descriptive description.
+
+.. seealso:: :ref:`sec-caption-title`
+
+Image alternative text
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. sourcecode:: rst
+
+    .. thumbnail:: http://a.b/non_existing_image.png
+        :alt: Cannot load this photo, but believe me it is nice.
+
+.. thumbnail:: http://a.b/non_existing_image.png
     :alt: Cannot load this photo, but believe me it's nice.
 
-image with caption
-^^^^^^^^^^^^^^^^^^
-
-.. thumbnail:: img.jpg
-    :title:
-
-    Some nice title to the picture
-
 Group images
-------------
+^^^^^^^^^^^^
 
+.. sourcecode:: rst
+
+    .. thumbnail:: img.jpg
+        :group: group1
+    
+    .. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
+        :group: group1
+    
 .. thumbnail:: img.jpg
     :group: group1
 
-.. thumbnail:: img.jpg
-    :group: group1
-
-.. thumbnail:: img.jpg
-    :group: group1
-
-.. thumbnail:: img.jpg
+.. thumbnail:: https://upload.wikimedia.org/wikipedia/meta/0/08/Wikipedia-logo-v2_1x.png
     :group: group1
 
 
-Aligning
---------
+Alignment
+^^^^^^^^^
 
-.. container:: clearfix
+.. sourcecode:: rst
 
-   .. thumbnail:: img.jpg
-      :align: left
-
-.. container:: clearfix
-
-   .. thumbnail:: img.jpg
-      :align: center
-
-.. container:: clearfix
-
-   .. thumbnail:: img.jpg
-      :align: right
-
-
-Caption
--------
+    .. thumbnail:: img.jpg
+       :align: center 
 
 .. thumbnail:: img.jpg
-   :title: Some nice title to the picture
-   :show_caption: True
+   :align: center 
 
 
+.. _sec-caption-title:
+
+Caption / title
+^^^^^^^^^^^^^^^
+.. sourcecode:: rst
+
+    .. thumbnail:: img.jpg
+        :title: Some title / caption.
+    
+    .. thumbnail:: img.jpg
+        :title: Some title / caption.
+        :show_caption: True
+
+.. thumbnail:: img.jpg
+    :title: Some title / caption.
+
+.. thumbnail:: img.jpg
+    :title: Some nice title to the picture.
+    :show_caption: True
 
 Indices and tables
 ==================
