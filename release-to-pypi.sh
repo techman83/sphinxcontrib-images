@@ -10,6 +10,8 @@ echo "release procedure or one possible release procedure."
 ## Prerequisites
 ## - Bump version in setup.py
 ## - Bump version in sphinxcontrib/images.py
+## - Make sure the lightbox2 submodule is clone
+##   (git submodule update --init --recursive)
 
 
 ## Create a virtual environment for twine installation
