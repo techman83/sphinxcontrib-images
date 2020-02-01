@@ -4,7 +4,6 @@ cache:
     - $PWD/wheelhouse
     - $HOME/.cache/pip
 dist: xenial
-sudo: false
 env:
   global:
     - PIP_FIND_LINKS=$PWD/wheelhouse
