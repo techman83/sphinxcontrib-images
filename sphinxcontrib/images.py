@@ -5,20 +5,15 @@ __license__ = "Apache 2"
 
 
 import os
-import re
 import sys
-import json
 import copy
 import uuid
 import hashlib
 import argparse
 import functools
-import posixpath
 import pkg_resources
 
 import sphinx
-from sphinx.locale import _
-from sphinx.environment import NoUri
 from sphinx.util.osutil import copyfile
 
 try:
@@ -34,11 +29,6 @@ except:
     from docutils.parsers.rst import Directive
 
 try:
-    from sphinx.util.compat import make_admonition
-except:
-    from docutils.parsers.rst.directives.admonitions import BaseAdmonition as make_admonition
-
-try:
     from sphinx.util import status_iterator
 except ImportError:
     pass
@@ -46,8 +36,7 @@ except ImportError:
 from sphinx.util.console import brown
 from sphinx.util.osutil import ensuredir
 
-from docutils import nodes, utils
-from docutils.parsers.rst import roles
+from docutils import nodes
 from docutils.parsers.rst import directives
 
 import requests
