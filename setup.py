@@ -24,7 +24,7 @@ class Tox(TestCommand):
 
 setup(
     name='sphinxcontrib-images',
-    version='0.9.1',
+    version='0.9.2',
     url='https://github.com/sphinx-contrib/images',
     download_url='https://pypi.python.org/pypi/sphinxcontrib-images',
     project_urls={
