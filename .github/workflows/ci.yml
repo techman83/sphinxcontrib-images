@@ -4,9 +4,7 @@ on: [push, pull_request]
 
 jobs:
   test:
-    name: >
-      Test Python ${{ matrix.python-version }},
-      Sphinx ${{ matrix.sphinx-version }}
+    name: Test Python ${{ matrix.python-version }}
 
     runs-on: ubuntu-latest
 
@@ -14,28 +12,13 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
+          - '2.7'
           - '3.6'
           - '3.7'
           - '3.8'
           - '3.9'
           - 'pypy-2.7'
           - 'pypy-3.7'
-        sphinx-version:
-          - '2.0.1'
-          - '2.1.2'
-          - '2.2.2'
-          - '2.3.1'
-          - '2.4.4'
-          - '3.0.0'
-          - '3.2.1'
-          - 'latest'
-
-        include:
-          - python-version: '2.7'
-            sphinx-version: '1.8.5'
-
-          - python-version: 'pypy'
-            sphinx-version: '1.8.5'
 
     steps:
       - uses: actions/checkout@v2
@@ -51,10 +34,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: pip-test-python-${{ matrix.python-version }}-sphinx-${{ matrix.sphinx-version }}-${{ hashFiles('**/tox.ini', '**/setup.*') }}
+          key: pip-test-python-${{ matrix.python-version }}-${{ hashFiles('**/tox.ini', '**/setup.*') }}
           restore-keys: |
-            pip-test-python-${{ matrix.python-version }}-sphinx-${{ matrix.sphinx-version }}-${{ hashFiles('**/tox.ini', '**/setup.*') }}
-            pip-test-python-${{ matrix.python-version }}-sphinx-${{ matrix.sphinx-version }}
+            pip-test-python-${{ matrix.python-version }}-${{ hashFiles('**/tox.ini', '**/setup.*') }}
             pip-test-python-${{ matrix.python-version }}
             pip-test-
 
@@ -66,5 +48,3 @@ jobs:
       - name: Tox tests
         run: |
           tox
-        env:
-          SPHINX: ${{ matrix.sphinx-version }}
