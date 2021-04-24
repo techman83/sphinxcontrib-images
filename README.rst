@@ -9,10 +9,11 @@ Easy thumbnails in Sphinx documentation (focused on HTML).
 * `Documentation <https://sphinxcontrib-images.readthedocs.io>`_
 * `Repository (GitHub) <https://github.com/sphinx-contrib/images/>`_
 * `PyPI <https://pypi.python.org/pypi/sphinxcontrib-images/>`_
-* `TravisCI <https://travis-ci.com/sphinx-contrib/images>`_
+* `GitHub actions <https://github.com/sphinx-contrib/images/actions/workflows/ci.yml>`_
 
-  .. image:: https://api.travis-ci.com/sphinx-contrib/images.svg?branch=master
-      :target: https://travis-ci.com/sphinx-contrib/images 
+  .. image:: https://github.com/sphinx-contrib/images/actions/workflows/ci.yml/badge.svg
+     :target: https://github.com/sphinx-contrib/images/actions/workflows/ci.yml
+     :alt: GitHub Actions
 
 Features
 --------

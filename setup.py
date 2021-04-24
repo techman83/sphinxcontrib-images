@@ -4,22 +4,6 @@
 import sys
 import codecs
 from setuptools import setup, find_packages
-from setuptools.command.test import test as TestCommand
-
-
-class Tox(TestCommand):
-    user_options = [('tox-args=', 'a', "Arguments to pass to tox")]
-    def initialize_options(self):
-        TestCommand.initialize_options(self)
-        self.tox_args = None
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-    def run_tests(self):
-        import tox
-        errno = tox.cmdline()
-        sys.exit(errno)
 
 
 setup(
@@ -51,6 +35,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Documentation',
     ],
     entry_points={
@@ -69,7 +54,5 @@ setup(
     install_requires=['sphinx>=1.8.5,<2.0;python_version<"3.0"',
                       'sphinx>=2.0;python_version>="3.0"',
                       'requests>2.2,<3'],
-    tests_require=['tox==3.2.1'],
-    cmdclass = {'test': Tox},
     namespace_packages=['sphinxcontrib'],
 )
