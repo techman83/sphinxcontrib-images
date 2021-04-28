@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='sphinxcontrib-images',
-    version='0.9.2',
+    version='0.9.3',
     url='https://github.com/sphinx-contrib/images',
     download_url='https://pypi.python.org/pypi/sphinxcontrib-images',
     project_urls={
