@@ -87,6 +87,7 @@ git add setup.py sphinxcontrib/images.py
 git commit -m "Version bumped to a.b.c"
 git tag -a a.b.c -m "release a.b.c"
 git push origin master
+git push origin a.b.c
 
 
 [1] Version 0.9.3.pre1 in setup.py is converted to 0.9.3rc1 in TestPyPI
