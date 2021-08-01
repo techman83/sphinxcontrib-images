@@ -387,7 +387,7 @@ Alignment
        :align: center 
 
 .. thumbnail:: img.jpg
-   :align: center 
+    :align: center 
 
 
 .. _sec-caption-title:
@@ -409,6 +409,37 @@ Caption / title
 .. thumbnail:: img.jpg
     :title: Some nice title to the picture.
     :show_caption: True
+
+
+Reference via explicit target
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Thumbnails can not, at present, be numbered like figures,
+hence they can not be referenced by `:numref:`, but they can be referenced 
+by `:ref:`.
+
+.. sourcecode:: rst
+
+    This is a reference to a thumbnail: :ref:`A thumbnail<my target>`.
+    Scroll until the image is not visible before clicking the link
+    to see the effect.
+
+    .. _my target:    
+
+    .. thumbnail:: img.jpg
+
+    
+
+This is a reference to a thumbnail: :ref:`A thumbnail<my target>`.
+Scroll until the image is not visible before clicking the link
+to see the effect.
+
+.. _my target:    
+
+.. thumbnail:: img.jpg
+    
+
+
 
 Indices and tables
 ==================

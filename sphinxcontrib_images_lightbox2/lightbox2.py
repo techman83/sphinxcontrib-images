@@ -40,11 +40,12 @@ class LightBox2(images.Backend):
                href="{href}"
                title="{title}"
                data-title="{title}"
-               id="{id}"
+               {id}
                >'''.format( group='group-%s' % node['group'] if node['group'] else node['uri'],
                             href=node['uri'],
                             title=node['title'] + node['content'],
-                            id = node['ids'][0] # Only one id attribute allowed
+                            # Only one id attribute is meaningful
+                            id = 'id="' + node['ids'][0] + '"' if len(node['ids'])>0 else ''
                             ))
         writer.body.append(
             '''<img src="{src}"

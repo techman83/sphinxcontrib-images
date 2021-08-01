@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Issue where explicit targets for thumbnails where ignored. 
+- Issue where explicit targets for thumbnails were ignored. 
   `.. _my target:` before a thumbnail directive would not make the thumbnail 
-  referrable by `:ref:Title <my target>`.
+  referenceable by `:ref:Title <my target>`.
 
 
 ## [0.9.3] - 2021-04-27
