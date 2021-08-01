@@ -33,15 +33,18 @@ class LightBox2(images.Backend):
                 writer.body.append(u'''<a ''')
         else:
             writer.body.append(u'''<a class="{cls}"'''.format(cls=' '.join(node['classes']),))
+
         writer.body.append(
             u'''
                data-lightbox="{group}"
                href="{href}"
                title="{title}"
                data-title="{title}"
+               id="{id}"
                >'''.format( group='group-%s' % node['group'] if node['group'] else node['uri'],
                             href=node['uri'],
                             title=node['title'] + node['content'],
+                            id = node['ids'][0] # Only one id attribute allowed
                             ))
         writer.body.append(
             '''<img src="{src}"
