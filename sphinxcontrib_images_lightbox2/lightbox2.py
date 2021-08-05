@@ -4,15 +4,14 @@ from sphinxcontrib import images
 
 class LightBox2(images.Backend):
     STATIC_FILES = (
-        'lightbox2/css/lightbox.css',
-        'lightbox2/js/jquery-1.11.0.min.js',
-        'lightbox2/js/lightbox.min.js',
-        'lightbox2-customize/jquery-noconflict.js',
-        'lightbox2/js/lightbox.min.map',
-        'lightbox2/img/close.png',
-        'lightbox2/img/next.png',
-        'lightbox2/img/prev.png',
-        'lightbox2/img/loading.gif',
+        'lightbox2/dist/images/close.png',
+        'lightbox2/dist/images/next.png',
+        'lightbox2/dist/images/prev.png',
+        'lightbox2/dist/images/loading.gif',
+        'lightbox2/dist/js/lightbox-plus-jquery.min.js',
+        'lightbox2/dist/js/lightbox-plus-jquery.min.map',
+        'lightbox2/dist/css/lightbox.css',
+        'lightbox2-customize/jquery-noconflict.js'
     )
 
     def visit_image_node_html(self, writer, node):
