@@ -1,5 +1,5 @@
-/docs/source/_images
-/docs/build
+/docs/_images
+/docs/_build
 /.tox
 *~
 *pyc
