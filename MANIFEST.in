@@ -7,3 +7,4 @@ include sphinxcontrib_images_lightbox2/lightbox2/dist/js/lightbox-plus-jquery.mi
 include sphinxcontrib_images_lightbox2/lightbox2/dist/js/lightbox-plus-jquery.min.map
 include sphinxcontrib_images_lightbox2/lightbox2/dist/css/lightbox.css
 include sphinxcontrib_images_lightbox2/lightbox2-customize/jquery-noconflict.js
+include sphinxcontrib_images_lightbox2/lightbox2-customize/pointer.css
